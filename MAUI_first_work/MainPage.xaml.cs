@@ -1,24 +1,19 @@
-﻿namespace MAUI_first_work;
+﻿using System.Diagnostics;
+
+namespace MAUI_first_work;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    } 
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    public void OnCounterClicked(Object sender,EventArgs e)
+    {
+        Output.Text = $"{Math.Round(Convert.ToInt32(DataValue.Text) * 4.91, 2, MidpointRounding.AwayFromZero)} lei";
+        SemanticScreenReader.Announce(Output.Text);
+    } 
 }
 
